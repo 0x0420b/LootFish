@@ -1,0 +1,7 @@
+## Interface: 11302
+## Author: Neer
+## Version: 1
+## Title: Fast Fish Loot [GG]
+## Notes: Loot our fish Fast
+
+LootFish.lua
