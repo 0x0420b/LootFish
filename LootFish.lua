@@ -2,7 +2,7 @@ local Enabled = false
 SLASH_LOOTFISH1 = "/lootfish"
 local WantedFish = "Oily Blackmouth"
 
-print('|cffff0000[LOOTFISH]|r|cffffff00 /Lootfish FishName To only loot that fish.|r')
+print('|cffff0000[LOOTFISH]|r|cffffff00 /LootFish FishName To only loot that fish.|r')
 
 SlashCmdList["LOOTFISH"] = function(msg)
     if msg == "" then
@@ -19,8 +19,8 @@ function LootAllSlots()
     if Enabled then
         SetCVar("autoLootDefault", false)
         for i = GetNumLootItems(), 1, -1 do
-            local _,name = GetLootSlotInfo(i)
-            if name == WantedFish then
+            local _,name,_,rarity = GetLootSlotInfo(i)
+            if name == WantedFish or rarity > 1 then
                 LootSlot(i)
                 ConfirmLootSlot(i)
             end
